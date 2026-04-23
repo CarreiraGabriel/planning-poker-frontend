@@ -130,7 +130,7 @@ npm run dev
 
 ## 🔗 Backend
 
-👉 https://github.com/seu-usuario/planning-poker-backend
+👉 https://github.com/CarreiraGabriel/planning-poker-backend
 
 ---
 
