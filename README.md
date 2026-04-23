@@ -1,73 +1,145 @@
-# React + TypeScript + Vite
+# 🃏 Planning Poker — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <img src="https://img.shields.io/badge/React-19-blue?logo=react" />
+  <img src="https://img.shields.io/badge/TypeScript-5.x-blue?logo=typescript" />
+  <img src="https://img.shields.io/badge/Vite-8-purple?logo=vite" />
+  <img src="https://img.shields.io/badge/TailwindCSS-4-38B2AC?logo=tailwind-css" />
+  <img src="https://img.shields.io/badge/Socket.IO-Realtime-black?logo=socket.io" />
+  <img src="https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel" />
+</p>
 
-Currently, two official plugins are available:
+<p align="center">
+  Interface web em tempo real para sessões de <strong>Planning Poker</strong>
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🎥 Demo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+<p align="center">
+  <img src="./.github/demo.gif" alt="Demo da aplicação" width="100%" />
+</p>
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🧠 Sobre
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Aplicação frontend para sessões de Planning Poker em tempo real.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Usuários podem criar ou entrar em salas compartilhadas, votar de forma privada e revelar resultados simultaneamente, com sincronização instantânea entre todos os participantes.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## ⚙️ Stack
+
+- React 19 + TypeScript
+- Vite
+- Tailwind CSS
+- React Router
+- Socket.IO Client
+
+---
+
+## 🔌 Realtime
+
+Comunicação via WebSocket utilizando Socket.IO.
+
+Principais eventos:
+
+- `create_room`
+- `room_created`
+- `join_room`
+- `vote`
+- `reveal_votes`
+- `reset_round`
+- `room_update`
+
+---
+
+## 🧩 Funcionalidades
+
+### 🏠 Home
+
+- Criar nova sala
+- Entrar em sala existente
+- Navegação via link compartilhável
+
+### 🃏 Sala
+
+- Participantes em tempo real
+- Votação com cartas (1, 2, 3, 5, 8, 13, 21, ?)
+- Indicação de quem já votou
+- Revelação simultânea
+- Controle de rodadas
+
+### 🎯 Experiência
+
+- Interface fluida e responsiva
+- Atualizações em tempo real
+- Feedback visual imediato
+- Compartilhamento rápido de sala
+
+---
+
+## 📁 Estrutura
+
+```
+src/
+├── pages/
+│   ├── Home.tsx
+│   └── Room.tsx
+├── components/
+├── socket.ts
+├── App.tsx
+└── main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🔧 Setup
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Clone
+
+```bash
+git clone https://github.com/seu-usuario/planning-poker-frontend.git
+cd planning-poker-frontend
 ```
+
+### Instalação
+
+```bash
+npm install
+```
+
+### Variáveis de ambiente
+
+Crie `.env`:
+
+```
+VITE_BACKEND_URL=http://localhost:3000
+```
+
+### Rodar
+
+```bash
+npm run dev
+```
+
+---
+
+## 🔗 Backend
+
+👉 https://github.com/seu-usuario/planning-poker-backend
+
+---
+
+## 👨‍💻 Autor
+
+Gabriel Carreira
+
+---
+
+## 📄 Licença
+
+MIT
